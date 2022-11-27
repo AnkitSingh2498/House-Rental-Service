@@ -1,0 +1,272 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+
+    
+      {% comment %} @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap');
+
+.navbar {
+  background-color: #272727;
+
+
+}
+
+#dropdownMenuButton{
+  color:#2eca6a;
+}
+.navbar a {
+  color: white;
+  font-size: 20px;
+}
+.navbar a:hover {
+  color: #2eca6a;
+  font-size: 20px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+footer{
+    background-color: #272727;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 30px;
+    margin-top: auto;
+}
+
+footer li{
+    list-style: none;
+    margin: 10px;
+    display: inline-block;
+}
+
+.icons a{
+    background: #2eca6a;
+    color: #272727;
+    padding: 14px;
+    font-size: 20px;
+    border-radius: 100%;
+    display: flex;
+}
+.icons a:hover{
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.menu a{
+    color: #ffffff;
+    text-transform: capitalize;
+}
+.menu a:hover{
+    color: #52527a;
+    transition: 0.5s;
+}
+
+.footer-copyright{
+    background-color:#2eca6a;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 30px;
+    text-transform: capitalize;
+}
+
+.footer-copyright p{
+    margin-bottom: 0px;
+}
+      .nav-item1 {
+        float: right;
+        display: flex;
+        height: 40px;
+        flex-flow: column wrap;
+        background-color: gray;
+      }
+      #footer {
+        float: right;
+        font-size: 5px;
+        font-color: black;
+      }
+.signup, .dropdown{
+        background-color: rgba(160, 179, 176, 0.25);
+        border-radius: 15px;
+        color: #2eca6a;
+        padding: 5px 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        margin: 10px 30px;
+        cursor: pointer;
+      } {% endcomment %}
+    
+
+    
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="static/images/logo1.png"
+            alt="ApnaAshiyana"
+            width="210"
+            height="45"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="owner">Owner</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tenant">Tenant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about">About Us</a>
+            </li>
+          </ul>
+          
+          {% if user.is_authenticated %}
+
+          
+          <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome, {{request.user}}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+          </div>
+      
+      
+           <script src="https://code.jquery.com/jquery.js"></script>
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> 
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+          
+          {% else %}
+          <button
+            class="signup"
+            type="button"
+            class="btn btn-primary"
+            onclick="window.location.href = 'signup';"
+          >
+          Login
+          </button>
+          
+          
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    
+    {% for msg in messages %}
+    <div class="alert alert-{{ msg.tags}} alert-dismissible fade show" role="alert">
+      <strong> Message: </strong> {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    {% endfor %}
+    <div class="container">
+      <h1>{{ Welcome_text }}</h1>
+    </div>
+    {% block body %} {% endblock body %}
+
+  </body>
+  <!-- Footer -->
+
+  <!--Ionicons-->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<body>
+  <footer>
+      <ul class="icons">
+          <li><a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <ul class="menu">
+              <li><a href="/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Partners</a></li>
+              <li><a href="#">Specialties</a></li>
+              <li><a href="#">Contact Us</a></li>
+      </ul>
+          <div class="footer-copyright">
+              <p>Copyright @ 2022 All Rights Reserved.</p>
+          </div>
+  </footer>
+  {% comment %} <footer
+    id=""
+    class="py-4 text-white text-center"
+    style="background-color: #797d7a"
+  >
+    <div id="footer">
+      <h5>
+        contact: +9188888-55555<br />
+        Address: Kanpur, Uttar Pradesh
+      </h5>
+    </div>
+
+    Copyright &copy; <span class="year"></span> Apna Ashiyana
+  </footer> {% endcomment %}
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+  </html>
+
+
