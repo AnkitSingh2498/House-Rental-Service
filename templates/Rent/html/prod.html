@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Apna Ashiyana - Property Details{% endblock title %} 
+
+{% block body %}
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static '/bootstrap4/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/css/prodstyles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/css/responsive.css' %}">
+
+
+	  <style>
+  /* Make the image fully responsive */
+  .carousel-item background_image {
+    width: 100%;
+    height: -50%;
+  }
+  </style>
+
+<div class="super_container">
+
+			<div>
+						<div>
+							<div style="align:center;">
+								<img src="/media/{{det.Building_img1}}" alt="" style="width:350px; height:300px">
+								<div class="destination_content">
+									<div class="destination_title"><a href="/">Owner Name : {{det.Owner_Name}}</a></div>
+									<p class="text-muted">House Type : {{det.House_type}}</p>
+									<p class="text-muted">Location : {{det.city}}</p>
+									<div class="destination_subtitle"><p>{{det.House_description}}</p></div>
+									<div class="destination_price">{{det.Price}} Rs / Month           <a class="btn btn-success " href="#">Book Now</a> </div>
+						        </div>
+							</div><br><br>
+
+							<div id="demo" class="carousel slide" data-ride="carousel">
+							  <ul class="carousel-indicators">
+								<li data-target="#demo" data-slide-to="0" class="active"></li>
+								<li data-target="#demo" data-slide-to="1"></li>
+								<li data-target="#demo" data-slide-to="2"></li>
+							  </ul>
+							  <div class="carousel-inner">
+								<div class="carousel-item active">
+								  <img src="/media/{{det.Room_img2}}" alt="" width="1080" height="500">
+								  <div class="carousel-caption">
+									<div class="container">
+									   <div class="enroll-button">
+										  <h1 class="text-center text-capitalize pt-5" > Kitchen </h1>
+										  <hr class="w-25 mx-auto pb-5">
+									   </div>
+									</div>
+								  </div>
+								</div>
+
+								<div class="carousel-item">
+								  <img src="/media/{{det.Room_img3}}" alt="Chicago" width="1080" height="500">
+									<div class="carousel-caption">
+										<div class="container">
+										   <div class="enroll-button">
+											  <h1 class="text-center text-capitalize pt-5" >Bed Room </h1>
+											  <hr class="w-25 mx-auto pb-5">
+										   </div>
+										</div>
+									  </div>
+									</div>
+                                    <div class="carousel-item">
+                                        <img src="/media/{{det.Room_img1}}" alt="Chicago" width="1080" height="500">
+                                          <div class="carousel-caption">
+                                              <div class="container">
+                                                 <div class="enroll-button">
+                                                    <h1 class="text-center text-capitalize pt-5" >Hall </h1>
+                                                    <hr class="w-25 mx-auto pb-5">
+                                                 </div>
+                                              </div>
+                                            </div>
+                                          </div> 
+                                          <div class="carousel-item">
+                                            <img src="/media/{{det.Building_img1}}" alt="Chicago" width="1080" height="500">
+                                              <div class="carousel-caption">
+                                                  <div class="container">
+                                                     <div class="enroll-button">
+                                                        <h3 class="text-center text-capitalize pt-5" >Building/House </h3>
+                                                        <hr class="w-25 mx-auto pb-5">
+                                                     </div>
+                                                  </div>
+                                                </div>
+                                              </div>         
+								
+							  </div>
+							  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+								<span class="carousel-control-prev-icon"></span>
+							  </a>
+							  <a class="carousel-control-next" href="#demo" data-slide="next">
+								<span class="carousel-control-next-icon"></span>
+							  </a>
+                            </div>
+
+
+							<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+						</div>
+
+				</div>
+
+			</div>
+
+		</div><br><br>
+
+		<div class="row mb-5">
+			
+
+			<div class="col-lg-6 col-md-6 col-12">
+				<h2>State : {{det.state}}  <br>       City : {{det.city}}</h2>
+				<h3>For further details contact Owner {{det.phone_no}}, {{det.Alt_phone_no}}</h3>
+
+			<!--	<div class="destination_price" style="align:center;">Mail Us : {{i.user.Profile.email}}</div> -->
+			</div>
+			<div>
+				<br>
+				<br>
+			</div><br><br>
+
+		</div>
+	</div>
+
+</div>
+
+						
+	
+
+	
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static '/bootstrap4/popper.js' %}"></script>
+<script src="{% static '/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+{% endblock body %}

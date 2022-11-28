@@ -67,13 +67,13 @@
 
   <!-- cards -->
   
-
+<section>
   
   <div class="grid">
     {% for n in AdData %}
     <div class="grid-item">
       <div class="card">
-        <a href={{n.id}} class="image">
+        <a href="houseDetails/{{n.id}}" class="image">
         <img class="card-img" src="/media/{{n.Building_img1}}"  alt="Ad" />
         </a>
         <div class="card-content">
@@ -84,12 +84,15 @@
           <p class="card-text">
             {{n.House_description}}
           </p>
-          <button class="card-btn">Visit <span>&rarr;</span></button>
+          <a href="houseDetails/{{n.id}}">
+            <button href="houseDetails/{{n.id}}" class="card-btn">Visit <span>&rarr;</span></button>
+            
+       </a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
-
+</section>
 
 {% endblock body %}

@@ -63,9 +63,9 @@ def handlelogout(request):
     return redirect('RentHome')  
 
 def houseDetails(request,id):
-    details = saveAd.objects.filter(id=id).first()
+    det = saveAd.objects.filter(id=id).first()
     context ={
-        'details':details 
+        'det': det 
     }
 
-    return render(request,'Rent/html/single.html',context)
+    return render(request,'Rent/html/prod.html',context)

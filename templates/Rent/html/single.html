@@ -1,7 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<div class="product-details-area pt-100px pb-100px">
+<link rel="stylesheet" type="text/css" href="/static/css/single.css">
+<script type="text/javascript" src="/static/js/single.js"></script>
+
+<section id="services" class="services section-bg">
+    <div class="container-fluid">
+       <div class="row row-sm">
+          <div class="col-md-6 _boxzoom">
+             <div class="zoom-thumb">
+                <ul class="piclist">
+                   <li><img src="/media/{{det.Room_img1}}" alt=""></li>
+                   <li><img src="/media/{{det.Room_img2}}" alt=""></li>
+                   <li><img src="/media/{{det.Room_img3}}" alt=""></li>
+                   <li><img src="/media/{{det.Building_img1}}" alt=""></li>
+                </ul>
+             </div>
+             
+             <div class="_product-images">
+                
+                <div class="picZoomer">
+                   <img class="my_img" src="/media/{{det.Building_img1}}" alt="">
+                </div>
+             </div>
+          </div>
+          <div class="col-md-6">
+             <div class="_product-detail-content">
+                <p class="_p-name"> {{det.Owner_Name}}</p>
+                <div class="_p-price-box">
+                   <div class="p-list">
+                      
+                      <span class="price"><strong> Price : </strong>{{det.Price}}/Month </span>
+                   </div>
+                   
+                   <div class="_p-features">
+                        <h5><strong>State : </strong>{{det.state}}</h5>
+                        <h5><strong>District : </strong>{{det.district}}</h5>
+                        <h5><strong>City : </strong>{{det.city}}</h5>
+                      <span> Description About this House:- </span>
+                      {{det.House_description}}                      
+                   </div>
+                   <div class="p-list">
+                      
+                    <span class="Contact"><strong> Contact No: </strong>{{det.phone_no}} , {{ det.Alt_phone_no}}</span>
+                 </div>
+
+                 
+                   {% comment %} <form action="" method="post" accept-charset="utf-8">
+                      <ul class="spe_ul"></ul>
+                      <div class="_p-qty-and-cart">
+                         <div class="_p-add-cart">
+                            <button class="btn-theme btn buy-btn" tabindex="0">
+                            <i class="fa fa-shopping-cart"></i> Buy Now
+                            </button>
+                            <button class="btn-theme btn btn-success" tabindex="0">
+                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <input type="hidden" name="pid" value="18" />
+                            <input type="hidden" name="price" value="850" />
+                            <input type="hidden" name="url" value="" />    
+                         </div>
+                      </div>
+                   </form> {% endcomment %}
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+
+ 
+
+
+
+
+{% comment %} <div class="product-details-area pt-100px pb-100px">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
@@ -43,7 +116,7 @@
                 <div class="swiper-container mt-20px zoom-thumbs slider-nav-style-1 small-nav">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/small-image/1.webp" alt="">
+                            <img class="img-responsive m-auto" src="/media/{{n.Building_img1}}" alt="">
                         </div>
                         <div class="swiper-slide">
                             <img class="img-responsive m-auto" src="assets/images/product-image/small-image/2.webp" alt="">
@@ -67,10 +140,10 @@
             </div>
             <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                 <div class="product-details-content quickview-content ml-25px">
-                    <h2>Modern Smart Phone</h2>
+                    <h2>{{det.Owner_Name}}</h2>
                     <div class="pricing-meta">
                         <ul class="d-flex">
-                            <li class="new-price">$20.90</li>
+                            <li class="new-price"><strong>Price: </strong>{{det.Price}}</li>
                         </ul>
                     </div>
                     <div class="pro-details-rating-wrap">
@@ -266,5 +339,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 {% endblock %}

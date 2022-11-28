@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}Apna Ashiyana - Properties{% endblock title %} 
 
 {% block body %}
-
+<link rel="stylesheet" type="text/css" href="/static/css/tenant.css">
   <main id="main">
 
     <!-- ======= Intro Single ======= -->
@@ -67,29 +68,26 @@
                     <div class="price-box d-flex">
                       <span class="price-a">rent | {{i.Price}} Rs</span>
                     </div>
-                    <a href="/rent/Detail/{{i.id}}" class="link-a">Click here to view
+                    <a href="houseDetails/{{i.id}}" class="link-a">Click here to view
                       <span class="ion-ios-arrow-forward"></span>
                     </a>
                   </div>
                   <div class="card-footer-a">
                     <ul class="card-info d-flex justify-content-around">
                       <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
+                        <h4 class="card-info-title">Type</h4>
+                        <span>{{i.House_type}}
+                          
                         </span>
                       </li>
                       <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
+                        <h4 class="card-info-title">Allowed For</h4>
+                        <span>{{i.AllowedFor}}</span>
                       </li>
+                     
                       <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
+                        <h4 class="card-info-title">Date Added</h4>
+                        <span>{{i.date_added}}</span>
                       </li>
                     </ul>
                   </div>
